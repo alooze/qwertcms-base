@@ -1,5 +1,3 @@
-{{-- resources/views/admin/lte.blade.php --}}
-
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
@@ -28,16 +26,15 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap_multiselect.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('bootstrap_datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/qwertcms/css/bootstrap_multiselect.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/qwertcms/bootstrap_datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
 @stop
 
 @section('js')
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script src="{{ asset('js/bootbox.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap_multiselect.js') }}"></script>
-    <script src="{{ asset('bootstrap_datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-    <!-- add -->
+    <script src="{{ asset('vendor/qwertcms/js/bootbox.min.js') }}"></script>
+    <script src="{{ asset('vendor/qwertcms/js/bootstrap_multiselect.js') }}"></script>
+    <script src="{{ asset('vendor/qwertcms/bootstrap_datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('vendor/qwertcms/js/custom.js') }}"></script>
 @stop

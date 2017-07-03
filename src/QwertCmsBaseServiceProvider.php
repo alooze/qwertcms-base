@@ -81,6 +81,13 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__ . '/Mail/' => app_path('Mail')
         ], 'qwertcms_mail');
+
+        /**
+         * Функции хелперы
+         */
+        $this->publishes([
+            __DIR__ . '/Helpers/' => app_path('Helpers')
+        ], 'qwertcms_helpers');
         
     }
 
@@ -91,7 +98,7 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->singleton('laravel-filemanager', function () {
+        $this->app->singleton('qwertcms-base', function () {
             return true;
         });
     }
