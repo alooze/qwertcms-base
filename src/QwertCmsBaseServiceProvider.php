@@ -20,7 +20,7 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
         /**
          * Подключаем базовые маршруты
          */
-        if (Config::get('qcms.include_routes')) {
+        if (Config::get('qwertcms.include_routes')) {
             include __DIR__ . '/routes.php';
         }
 
