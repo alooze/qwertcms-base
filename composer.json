@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "alooze\\qwertcms-base\\": "src"
+            "alooze\\QwertCms\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "alooze\\qwertcms-base\\": "tests"
+            "alooze\\QwertCms\\": "tests"
         }
     },
     "scripts": {
