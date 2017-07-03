@@ -1,6 +1,6 @@
 <?php
 /////////////////////////////////  Админка //////////////////////////////////////
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'],  function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => '\App\Http\Controllers'],  function () {
     Route::get('/', ['as' => 'a.start', 'uses' => 'AdminController@index']);
 
     ////////// USERS //////////
@@ -44,4 +44,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],  function () {
 });
 
 /////////////////////////////////  Фронт //////////////////////////////////////
-Route::get('/', ['as' => 'f.start', 'uses' => 'FrontController@index']);
+Route::get('/', ['as' => 'f.start', 'uses' => 'FrontController@index', 'namespace' => '\App\Http\Controllers']);
