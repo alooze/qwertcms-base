@@ -1,50 +1,162 @@
-# qwertcms
+# qwertcms-base
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Latest Version on Packagist][ico-version]][https://packagist.org/packages/alooze/qwertcms-base]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```alooze``` ```alooze``` ```:author_website``` ```a.looze@gmail.com``` ```alooze``` ```qwertcms``` ```description will be later``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
+Базовая установка для скелета CMS
 
 
-## Install
-
-Via Composer
+## Установка
 
 ``` bash
-$ composer require alooze/qwertcms
+$ laravel new [App]
+$ cd [App]
+```
+В файле .env заменить localhost на свой домен, прописать доступы к БД и пр.
+
+``` bash
+$ composer require alooze/qwertcms-base ~1.0
 ```
 
-## Usage
+Вставить в секцию 'providers' в файле config/app.php  строки
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        alooze\QwertCms\QwertCmsBaseServiceProvider::class,
 ```
 
-## Change log
+Вставить в секцию 'aliases' в файле config/app.php  строки
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+``` php
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+```
+Выполнить в консоли
+
+``` bash
+$ php artisan vendor:publish
+```
+
+Для установки/обновления только файлов пакета можно использовать команду:
+
+``` bash
+$ php artisan vendor:publish --provider="alooze\QwertCms\QwertCmsBaseServiceProvider"
+```
+
+Скопировать содержимое метода *run()* из файла *database/seeds/DatabaseSeederExample.php* в *database/seeds/DatabaseSeeder.php*
+
+Выполнить в консоли
+
+``` bash
+$ composer dump-autoload -o
+```
+    
+
+затем
+
+``` bash
+$ php artisan migrate --seed 
+```
+(внимание! выполнять только на чистой установке!)
+
+либо
+
+``` bash
+$ php artisan migrate:refresh --seed 
+```
+
+При необходимости отредактировать файл *config/qwertcms.php*
+
+
+Отредактировать файл *config/adminlte.php* таким образом, чтобы в секции меню для чистой установки было только:
+
+``` php
+    'menu' => [
+
+        'ДАННЫЕ ИЗ ФОРМ',
+        [
+            'text' => 'Обратный звонок',
+            'url' => 'admin/relations/callbackform',
+            'icon' => 'paper-plane',
+            'icon_color' => 'green'
+        ],
+
+        'УПРАВЛЕНИЕ',
+        [
+            'text' => 'Пользователи',
+            'url' => 'admin/users',
+            'icon' => 'user',
+            'icon_color' => 'green',
+        ],
+        [
+            'text' => 'Почта менеджеров',
+            'url' => 'admin/emails',
+            'icon' => 'envelope',
+            'icon_color' => 'green',
+        ],
+        [
+            'text' => 'Настройка форм',
+            'url' => 'admin/forms',
+            'icon' => 'server',
+            'icon_color' => 'green',
+        ],
+    ],
+```
+
+(если такого файла не существует, установить пакет adminLTE командой 
+    *composer require jeroennoten/laravel-adminlte*
+)
+
+В папке *app/Http/Controllers/Auth* во всех файлах заменить 
+
+``` php
+    protected $redirectTo = '/home';
+```
+на 
+``` php
+    protected $redirectTo = '/admin';
+```
+
+В файле *app/Http/Middleware/RedirectIfAuthenticated.php* заменить
+```php
+    return redirect('/home');
+```
+на 
+``` php
+    return redirect('/admin');
+```
+В файле routes/web.php разместить маршруты:
+
+``` php
+    Auth::routes();
+    include __DIR__ . '/qwert.php';
+```
+
+
+В файле *app/Providers/AppServiceProvider.php* добавить в метод *register()* подключение хелперов
+
+``` php
+        foreach (glob(app_path('Helpers/*.php')) as $filename) {
+            require_once($filename);
+        }
+```
+
+Открыть в браузере адрес http://ДОМЕН/admin 
+Должно появиться приглашение на ввод логина 
+
+После установки данные для входа admin@admin.com:admin123
 
 ## Testing
+
+(Не реализовано)
 
 ``` bash
 $ composer test
