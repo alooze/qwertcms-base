@@ -1,7 +1,7 @@
 {
     "name": "alooze/qwertcms-base",
     "type": "library",
-    "description": "no description yet",
+    "description": "Laravel5 based CMS skeleton",
     "keywords": [
         "alooze",
         "qwertcms-base"
