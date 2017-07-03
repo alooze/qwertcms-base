@@ -21,7 +21,6 @@
         "jeroennoten/laravel-adminlte": "^1.15",
         "laravel/framework": "5.4.*",
         "laravelcollective/html": "^5.3.0",
-        "orangehill/iseed": "dev-master",
         "mcamara/laravel-localization": "1.0.*",
         "unisharp/laravel-filemanager": "^1.6"
     },
