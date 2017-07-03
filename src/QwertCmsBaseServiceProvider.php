@@ -47,15 +47,15 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
         ], 'qwertcms_public');
 
         $this->publishes([
-            __DIR__.'/views'  => base_path('resources/views/vendor/qwertcms'),
+            __DIR__.'/views'  => base_path('resources/views/'),
         ], 'qwertcms_view');
 
         /**
          * Шаблоны авторизации
          */
-        $this->publishes([
-            __DIR__.'/views/auth'  => base_path('resources/views/auth'),
-        ], 'qwertcms_view');
+        // $this->publishes([
+        //     __DIR__.'/views/auth'  => base_path('resources/views/auth'),
+        // ], 'qwertcms_view');
 
         /**
          * Миграции и seeds
