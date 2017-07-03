@@ -15,11 +15,12 @@
  */
 function seo($seoKey, $placeKey, $default='')
 {
-    $data = App\SeoData::where('place_key', $placeKey)->first();
-    if (!$data) return $default;
-    if (!isset($data->$seoKey)) return $default;
-    if (trim($data->$seoKey) == '') return $default;
-    return $data->$seoKey;
+    // $data = App\SeoData::where('place_key', $placeKey)->first();
+    // if (!$data) return $default;
+    // if (!isset($data->$seoKey)) return $default;
+    // if (trim($data->$seoKey) == '') return $default;
+    // return $data->$seoKey;
+    return '';
 }
 
 /**
@@ -30,7 +31,8 @@ function seo($seoKey, $placeKey, $default='')
  */
 function counters($placeKey, $default='')
 {
-    $data = App\CountersData::where('place_key', $placeKey)->first();
-    if (!$data) return $default;
-    return $data->code;
+    // $data = App\CountersData::where('place_key', $placeKey)->first();
+    // if (!$data) return $default;
+    // return $data->code;
+    return '';
 }

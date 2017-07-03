@@ -1,6 +1,6 @@
 <?php
 /////////////////////////////////  Админка //////////////////////////////////////
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => '\App\Http\Controllers'],  function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'],  function () {
     Route::get('/', ['as' => 'a.start', 'uses' => 'AdminController@index']);
 
     ////////// USERS //////////
@@ -44,5 +44,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => '\App\
 });
 
 /////////////////////////////////  Фронт //////////////////////////////////////
-Route::get('/', ['as' => 'f.start', 'uses' => '\App\Http\Controllers\FrontController@index']);
-Route::post('callback', ['as' => 'f.p.callback', 'uses' => '\App\Http\Controllers\FrontController@callback']);
+Route::get('/', ['as' => 'f.start', 'uses' => 'FrontController@index']);
+Route::post('callback', ['as' => 'f.p.callback', 'uses' => 'FrontController@callback']);

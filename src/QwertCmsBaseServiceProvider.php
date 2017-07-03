@@ -20,9 +20,9 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
         /**
          * Подключаем базовые маршруты
          */
-        if (Config::get('qwertcms.include_routes')) {
-            include __DIR__ . '/routes.php';
-        }
+        // if (Config::get('qwertcms.include_routes')) {
+        //     include __DIR__ . '/routes.php';
+        // }
 
         /**
          * Языки (резерв)
@@ -36,6 +36,12 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
             __DIR__ . '/config/qwertcms.php' => base_path('config/qwertcms.php'),
         ], 'qwertcms_config');
 
+        /**
+         * Роуты
+         */
+        $this->publishes([
+            __DIR__ . '/routes' => app_path('routes/'),
+        ], 'qwertcms_routes');
 
         /**
          * Шаблоны для админки

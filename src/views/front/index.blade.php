@@ -52,11 +52,7 @@
         <p class="franchise__subtitle">Ваша чистая прибыль <br class="visible-xs"> от $2 000 до $25 000 в месяц</p>
         <div class="franchise__btn-wrap">
             <div class="pull-left">
-                @if ($file)
-                <a class="btn btn-fr-load" href="{{ config('app.url') }}/{{ $file->path }}" target="_blank">Скачать презентацию</a>
-                @else
-                <a class="btn btn-fr-load" href="javascript:;" target="_blank">Скачать презентацию</a>
-                @endif
+                
                 
             </div>
             <div class="btn-annotation--pink-wrap pull-right">
@@ -522,28 +518,7 @@
                     </ul>
                 </div>
 
-                @include ('front.forms.finform')
-                <!-- <form class="franchise__financial-form" id="js-franchise__presentation-form">
-                    <img src="img/franchise/icons/finance-model-icon.png" alt="" class="img-responsive" width="98">
-                    <h2 class="franchise__financial-form-title">Финансовая Модель</h2>
-                    <p class="franchise__descr-secondary">Если вы хотите ознакомиться с финансовой моделью франшизы Autopark.ua,
-                        <br> оставьте свои контакты и мы отправим презентацию на ваш электронный адрес</p>
-                    <div class="franchise__financial-form-inner">
-                        <div class="form__input-wrap form__input-wrap--fr">
-                            <input type="text" class="form__input" placeholder="Ваше имя" name="name">
-                        </div>
-                        <div class="form__input-wrap form__input-wrap--fr">
-                            <input type="tel" class="form__input" placeholder="Телефон" name="phone">
-                        </div>
-                        <div class="form__input-wrap form__input-wrap--fr">
-                            <input type="email" class="form__input" placeholder="E-mail" name="email" onkeypress="validate(event)">
-                        </div>
-                    </div>
-                    <div class="btn-annotation--pink-wrap btn-pink-wrap--fr-secondary">
-                        <button class="btn btn-annotation--pink btn-pink--fr-secondary">Получить презентацию</button>
-                    </div>
-                </form> -->
-
+                
                 <div>
                     <h2 class="franchise__title-primary">Поддержка Франчайзера</h2>
 
@@ -848,23 +823,7 @@
                 </svg>
             </div>
             <div class="modal-window__inner modal-window__inner--order">
-                @include ('front.forms.consultform')
-                <!-- <h2 class="modal-window__title modal-window__title--order">Заказ консультации</h2>
-                <p class="modal-window__descr modal-window__descr--order">
-                    Заказ консультации возможен круглосуточно.
-                    <br> Менеджер перезвонит Вам с 10:00 до 19:00
-                    <br> по киевскому времени.</p>
-                    <form class="modal-window__form" id="js-modal-form">
-                        <div class="form__input-wrap form__input-wrap--modal">
-                            <input class="form__input" type="text" name="name" placeholder="Имя">
-                        </div>
-                        <div class="form__input-wrap form__input-wrap--modal">
-                            <input class="form__input" type="tel" name="phone" placeholder="Номер телефона">
-                        </div>
-                        <div class="text-align">
-                            <button class="btn btn--primary form__submit">Отправить</button>
-                        </div>
-                    </form> -->
+                
             </div>
         </div>
     </div>
