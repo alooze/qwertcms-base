@@ -13,7 +13,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.index', [ 'file' => SystemFile::first(), ]);
+        return view('front.index');
     }
 
     public function callback(Request $request)
