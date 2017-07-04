@@ -44,5 +44,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],  function () {
 });
 
 /////////////////////////////////  Фронт //////////////////////////////////////
-Route::get('/', ['as' => 'f.start', 'uses' => 'FrontController@index']);
-Route::post('callback', ['as' => 'f.p.callback', 'uses' => 'FrontController@callback']);
+Route::group(['prefix' => locale()], function() {
+    Route::get('/', ['as' => 'f.start', 'uses' => 'FrontController@index']);
+    Route::post('callback', ['as' => 'f.p.callback', 'uses' => 'FrontController@callback']);
+
+    // Route::get('lang', ['as' => 'f.lang', 'uses' => 'FrontController@lang']);
+});
