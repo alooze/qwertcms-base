@@ -107,10 +107,10 @@ class QwertCmsBaseServiceProvider extends ServiceProvider {
          * Языковые файлы
          */        
         $this->publishes([
-            __DIR__ . '/lang/adminlte' => base_path('resourses/lang/vendor/adminlte/')
+            __DIR__ . '/lang/adminlte/ru' => base_path('resources/lang/vendor/adminlte/ru/')
         ], 'qwertcms_adminlang');
         $this->publishes([
-            __DIR__ . '/lang/laravel' => base_path('resourses/lang/')
+            __DIR__ . '/lang/laravel/ru' => base_path('resources/lang/ru/')
         ], 'qwertcms_lang');
 
         /**
