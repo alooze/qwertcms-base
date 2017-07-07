@@ -1,8 +1,4 @@
-<h2 class="modal-window__title modal-window__title--order">Заказ звонка</h2>
-<p class="modal-window__descr modal-window__descr--order">
-                    Заказ звонка <br class="visible-xs"> возможен круглосуточно.
-                    <br> Менеджер перезвонит Вам <br class="visible-xs"> с 10:00 до 19:00
-                    <br> по киевскому времени.</p>
+<h2>Заказ звонка</h2>
 {{ 
     Form::open([
         'route' => 'f.p.callback', 

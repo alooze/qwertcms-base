@@ -36,22 +36,27 @@ class FrontController extends Controller
         if ($form) {
             $emails = $form->emails();
             if ($emails) {
-                $mail = Mail::to($emails[0]);
+                // $mail = Mail::to($emails[0]);
 
-                foreach ($emails as $i => $email) {
-                    if ($i == 0) continue;
-                    $mail->cc($email);
-                }
+                // foreach ($emails as $i => $email) {
+                //     if ($i == 0) continue;
+                //     $mail->cc($email);
+                // }
 
-                $mail->send(new FormInfoForManager($formUseObj, $form));
+                // $mail->send(new FormInfoForManager($formUseObj, $form));
 
-                if ($form->id == 2) {
-                    $mail = Mail::to($requestDataObj->email)
-                            ->send(new PresentationForUser($formUseObj, $form));
-                }
+                // if ($form->id == 2) {
+                //     $mail = Mail::to($requestDataObj->email)
+                //             ->send(new PresentationForUser($formUseObj, $form));
+                // }
             }
         }
+        return redirect()->route('f.start');
+        // return json_encode(['status' => 'OK']);
+    }
 
-        return json_encode(['status' => 'OK']);
+    public function lang()
+    {
+        echo llinks();
     }
 }
