@@ -37,4 +37,5 @@
     <script src="{{ asset('vendor/qwertcms/bootstrap_datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script src="{{ asset('vendor/qwertcms/js/custom.js') }}"></script>
+    @yield('custom_js')
 @stop
